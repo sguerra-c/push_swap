@@ -6,13 +6,14 @@
 /*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 11:26:53 by sguerra-          #+#    #+#             */
-/*   Updated: 2021/10/28 11:09:55 by sguerra-         ###   ########.fr       */
+/*   Updated: 2021/10/28 15:14:31 by sguerra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 void	init_stack(t_stack *stack, char stackname)
 {
@@ -22,31 +23,13 @@ void	init_stack(t_stack *stack, char stackname)
 	stack->name = stackname;
 }
 
-/*void	free_values(char ***values)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	j = -1;
-	while (values[++i])
-	{
-		while (values[i][++j])
-			free(values[i][j]);
-		free(values[i]);
-		j = -1;
-	}
-	free(values);
-}*/
-
 char	***get_values(int argc, char **argv)
 {
 	char ***values;
 	int i;
 	int j;
 
-	values = malloc(argc * sizeof(char***));
-	printf("DENTRO\n");
+	values = malloc(argc * sizeof(values));
 	argc = 1;
 	i = -1;
 	while (argv[argc])
@@ -54,14 +37,11 @@ char	***get_values(int argc, char **argv)
 		values[++i] = ft_split(argv[argc], ' ');
 		j = -1;
 		while (values[i][++j])
-		{
 			if (ft_isnumeric(values[i][j]) == 0)
 			{	
 				write(1, "Error\n", 6);
-				free(values);
-				return (NULL);
+				exit (-1);
 			}
-		}
 		argc++;
 	}
 	values[argc - 1] = NULL;
@@ -104,14 +84,13 @@ int	main(int argc, char **argv)
 
 	if (!argv[1])
 		return (0);
-	stack_a = malloc(argc * sizeof(stack_a));
-	stack_b = malloc(argc * sizeof(stack_b));
+	stack_a = malloc(5 * sizeof(stack_a));
+	stack_b = malloc(5 * sizeof(stack_b));
 	init_stack(stack_a, 'a');
 	init_stack(stack_b, 'b');
 	copy_args(stack_a, argc, argv);
-	//printf("DENTR0\n");
-	print_stack(stack_a, stack_b);
-	//sort_stack(stack_a, stack_b);
+	//print_stack(stack_a, stack_b);
+	sort_stack(stack_a, stack_b);
 	//print_stack(stack_a, stack_b);
 	//free_elements(stack_a, stack_a->first);
 	system("leaks push_swap");

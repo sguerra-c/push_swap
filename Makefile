@@ -6,7 +6,7 @@
 #    By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:37:10 by sguerra-          #+#    #+#              #
-#    Updated: 2021/10/28 11:25:48 by sguerra-         ###   ########.fr        #
+#    Updated: 2021/10/28 15:11:59 by sguerra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,10 @@ $(NAME):	$(OBJ)
 
 clean:	
 			rm -f $(OBJ)
+			make clean -C $(LIB_DIR) -s
 
 fclean:		clean
 			rm -f $(NAME)
+			make fclean -C $(LIB_DIR) -s
 			
 re: 		fclean all
