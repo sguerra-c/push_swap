@@ -6,7 +6,7 @@
 /*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 14:48:34 by sguerra-          #+#    #+#             */
-/*   Updated: 2021/10/26 17:10:50 by sguerra-         ###   ########.fr       */
+/*   Updated: 2021/10/28 16:29:11 by sguerra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 void	sort_stack(t_stack *stack_a, t_stack *stack_b)
 {
-	//while (check_sort(stack_a) != 1)
-	//{
 		push(stack_b, stack_a);
 		push(stack_b, stack_a);
 		while (stack_a->size > 0)
@@ -36,7 +34,6 @@ void	sort_stack(t_stack *stack_a, t_stack *stack_b)
 						break ;
 				}
 			push(stack_b, stack_a);
-			//print_stack(stack_a, stack_b);
 		}
 		if (stack_a->max - stack_b->first->num < stack_a->max - stack_b->last->num)
 			while (stack_b->first->num != stack_a->max)
@@ -46,6 +43,4 @@ void	sort_stack(t_stack *stack_a, t_stack *stack_b)
 				rotate(stack_b);
 		while (stack_b->size > 0)
 			push(stack_a, stack_b);
-	//}
-	//printf("Está ordenado\n");
 }	

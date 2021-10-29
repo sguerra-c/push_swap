@@ -6,7 +6,7 @@
 #    By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:37:10 by sguerra-          #+#    #+#              #
-#    Updated: 2021/10/28 15:11:59 by sguerra-         ###   ########.fr        #
+#    Updated: 2021/10/29 12:05:07 by sguerra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SRC =		src/push_swap.c			\
 			src/add_end_stack.c		\
 			src/print_stack.c		\
 			src/sort_stack.c		\
-			src/free_elements.c		\
 			src/swap.c				\
 			src/swap_both.c			\
 			src/push.c				\
@@ -27,7 +26,9 @@ SRC =		src/push_swap.c			\
 			src/rotate_both.c		\
 			src/rev_rotate.c		\
 			src/rev_rotate_both.c	\
-			src/check_sort.c
+			src/check_sort.c		\
+			src/sort_big_stack.c	\
+			src/get_chunks.c		\
 
 OBJ			= $(SRC:.c=.o)
 

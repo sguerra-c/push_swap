@@ -6,7 +6,7 @@
 /*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 11:24:15 by sguerra-          #+#    #+#             */
-/*   Updated: 2021/10/28 12:39:26 by sguerra-         ###   ########.fr       */
+/*   Updated: 2021/10/29 12:05:41 by sguerra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	insert_first_elem(t_stack *stack, int number);
 int	add_end_stack(t_stack *stack, t_element *last_element, int number);
 void	print_stack(t_stack *stack_a, t_stack *stack_b);
 void	sort_stack(t_stack *stack_a, t_stack *stack_b);
-void	free_elements(t_stack *stack, t_element *first_element);
 void	swap(t_stack *stack);
 void	swap_both(t_stack *stack_a, t_stack *stack_b);
 void	push(t_stack *stack_in, t_stack *stack_out);
@@ -45,6 +44,8 @@ void	rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	rev_rotate(t_stack *stack);
 void	rev_rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	sort_stack(t_stack *stack_a, t_stack *stack_b);
-int	check_sort(t_stack *a);
+void	sort_big_stack(t_stack *a, t_stack *b);
+void	get_chunks(t_stack *stack);
+int		check_sort(t_stack *a);
 
 #endif

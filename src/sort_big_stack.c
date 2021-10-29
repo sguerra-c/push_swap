@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_end_stack.c                                    :+:      :+:    :+:   */
+/*   sort_big_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 17:29:30 by sguerra-          #+#    #+#             */
-/*   Updated: 2021/10/29 17:20:34 by sguerra-         ###   ########.fr       */
+/*   Created: 2021/10/28 16:32:29 by sguerra-          #+#    #+#             */
+/*   Updated: 2021/10/29 12:42:35 by sguerra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-int	add_end_stack(t_stack *stack, t_element *last_element, int number)
+void	sort_big_stack(t_stack *a, t_stack *b)
 {
-	t_element	*element;
+	a = b;
 
-	element = malloc(sizeof(*element));
-	if (!element)
-		return (0);
-	element->num = number;
-	element->prev = last_element;
-	element->next = NULL;
-	last_element->next = element;
-	stack->last = element;
-	if (number < stack->min)
-		stack->min = number;
-	if (number > stack->max)
-		stack->max = number;
-	stack->average += number;
-	return (1);
 }
