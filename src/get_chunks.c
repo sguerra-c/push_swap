@@ -6,7 +6,7 @@
 /*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 11:10:50 by sguerra-          #+#    #+#             */
-/*   Updated: 2021/10/29 17:20:32 by sguerra-         ###   ########.fr       */
+/*   Updated: 2021/11/02 16:46:49 by sguerra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	}
 }
 
-void get_chunks(t_stack *stack)
+int *get_chunks(t_stack *stack)
 {
 	int sort_list[stack->size];
 	int i;
@@ -57,10 +57,10 @@ void get_chunks(t_stack *stack)
 	ft_sort_int_tab(sort_list, stack->size);
 	i = stack->size / 10;
 	decile = 0;
-	chunks = malloc(9 * sizeof(int));
+	chunks = malloc(11 * sizeof(int));
+	chunks[0] = stack->min;
 	while (++decile < 10)
-	{
-		chunks[decile] = sort_list[decile * i];;
-		printf("%d\n", chunks[decile]);
-	}
+		chunks[decile] = sort_list[decile * i];
+	chunks[10] = stack->max;
+	return (chunks);
 }

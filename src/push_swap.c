@@ -6,7 +6,7 @@
 /*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 11:26:53 by sguerra-          #+#    #+#             */
-/*   Updated: 2021/10/29 17:20:29 by sguerra-         ###   ########.fr       */
+/*   Updated: 2021/11/02 16:50:02 by sguerra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ int	main(int argc, char **argv)
 	init_stack(stack_b, 'b');
 	copy_args(stack_a, argc, argv);
 	//print_stack(stack_a, stack_b);
-	get_chunks(stack_a);
-	//sort_stack(stack_a, stack_b);
-	//print_stack(stack_a, stack_b);
+	//get_chunks(stack_a);
+	sort_big_stack(stack_a, stack_b);
+	print_stack(stack_a, stack_b);
 	//system("leaks push_swap");
 	return(0);
 }
