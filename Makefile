@@ -6,7 +6,7 @@
 #    By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:37:10 by sguerra-          #+#    #+#              #
-#    Updated: 2021/10/29 12:05:07 by sguerra-         ###   ########.fr        #
+#    Updated: 2021/11/05 11:54:02 by sguerra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC =		src/push_swap.c			\
 			src/insert_first_elem.c	\
 			src/add_end_stack.c		\
 			src/print_stack.c		\
-			src/sort_stack.c		\
+			src/sort_small_stack.c	\
 			src/swap.c				\
 			src/swap_both.c			\
 			src/push.c				\

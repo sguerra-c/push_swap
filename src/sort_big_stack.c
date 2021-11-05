@@ -6,7 +6,7 @@
 /*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 16:32:29 by sguerra-          #+#    #+#             */
-/*   Updated: 2021/11/02 16:50:04 by sguerra-         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:16:14 by sguerra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	prepare_stack(t_stack *stack, int max)
 		element = element->next;
 		i++;
 	}
-	if (i <= stack->size)
+	if (i <= stack->size / 2)
 		while (stack->first->num != max)
 			rotate(stack);
 	else
