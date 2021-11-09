@@ -6,7 +6,7 @@
 #    By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:37:10 by sguerra-          #+#    #+#              #
-#    Updated: 2021/11/05 11:54:02 by sguerra-         ###   ########.fr        #
+#    Updated: 2021/11/09 16:36:55 by sguerra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRC =		src/push_swap.c			\
 			src/get_chunks.c		\
 			src/new_sort.c			\
 			src/new_sort_rev.c		\
+			src/ft_sort_int_tab.c	\
+			src/move.c				\
 
 OBJ			= $(SRC:.c=.o)
 

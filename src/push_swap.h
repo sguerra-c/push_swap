@@ -6,7 +6,7 @@
 /*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 11:24:15 by sguerra-          #+#    #+#             */
-/*   Updated: 2021/11/05 11:46:55 by sguerra-         ###   ########.fr       */
+/*   Updated: 2021/11/09 16:37:46 by sguerra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ int		*get_chunks(t_stack *stack);
 int		check_sort(t_stack *a);
 void	new_sort(t_stack *a);
 void	new_sort_rev(t_stack *a, t_stack *b);
+void	ft_sort_int_tab(int *tab, int size);
+void 	move(t_stack *a, t_stack *b, int i);
 
 #endif

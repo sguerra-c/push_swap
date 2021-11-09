@@ -1,28 +1,27 @@
 #include "push_swap.h"
 
-void	ft_sort_int_tab2_rev(int *tab, int size)
+void	prepare_to_push(t_stack *a, t_stack *b)
 {
-	int temp;
-	int counter;
+	if (b->first->num > b->first->next->num)
+		swap(b);
+	if (a->size > 2 && a->first->num < a->first->next->num)
+		swap(a);
+}
+
+void	push_to_stack(t_stack *a, t_stack *b)
+{
 	int i;
 
-	counter = 0;
-	size--;
-	while (counter < size)
-	{
-		i = 0;
-		while (i < size)
+	i = 0;
+	if (b->first->num < a->first->num)
+		while (b->first->num < a->first->num)
 		{
-			if (tab[i] > tab[(i + 1)])
-			{
-				temp = tab[i];
-				tab[i] = tab[(i + 1)];
-				tab[(i + 1)] = temp;
-			}
+			rotate(b);
 			i++;
 		}
-		counter++;
-	}
+	push(b, a);
+	while(--i >= 0)
+		rev_rotate(b);
 }
 
 void move_rev(t_stack *a, t_stack *b, int i)
@@ -34,10 +33,6 @@ void move_rev(t_stack *a, t_stack *b, int i)
 	rev = 0;
     while (count > 0)
     {
-		printf("I == %d\n", i);
-		print_stack(b, a);
-		if (b->first->num > b->first->next->num)
-				swap(b); // Comprobar que el número primero de la lista b es mayor que el siguiente. Además, comprobar que es menor que el primero de la lista a, si no es así, buscar su posición rotando la lista a, insertandolo entonces y revertir la lista a su posición original.
         if (a->first->num > i)
             push(b, a);
         else
@@ -47,7 +42,6 @@ void move_rev(t_stack *a, t_stack *b, int i)
 		}
         count--;
     }
-	print_stack(b, a);
 	while (rev > 0)
 	{
 		rev_rotate(a);
@@ -69,7 +63,7 @@ void new_sort_rev(t_stack *a, t_stack *b)
 		element = element->next;
 		i++;
 	}
-	ft_sort_int_tab2_rev(sort_list, a->size);
+	ft_sort_int_tab(sort_list, a->size);
 	if (a->size > 2)
     {
         i = a->size / 2;
@@ -77,7 +71,7 @@ void new_sort_rev(t_stack *a, t_stack *b)
         new_sort_rev(a, b);
     }
 	while (a->size > 0)
-		push(b, a); // los ultimos números deben buscar en que posición de la lista a meterse. Esto sumará más movimientos pero de momento es la mejor opción.
+		push(b, a);
 	if (b->first->num > b->first->next->num)
-				swap(b);
+			swap(b);
 }

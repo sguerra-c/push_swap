@@ -6,7 +6,7 @@
 /*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 11:26:53 by sguerra-          #+#    #+#             */
-/*   Updated: 2021/11/05 12:27:06 by sguerra-         ###   ########.fr       */
+/*   Updated: 2021/11/09 18:02:06 by sguerra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,21 +80,19 @@ void	copy_args(t_stack *stack, int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
+	//t_stack *stack_b;
 
 	if (!argv[1])
 		return (0);
 	stack_a = malloc(5 * sizeof(stack_a));
-	stack_b = malloc(5 * sizeof(stack_b));
+	//stack_b = malloc(5 * sizeof(stack_b));
 	init_stack(stack_a, 'a');
 	//init_stack(stack_b, 'b');
 	copy_args(stack_a, argc, argv);
 	//print_stack(stack_a, stack_b);
 	new_sort(stack_a);
 	//new_sort_rev(stack_b, stack_a);
-	//sort_small_stack(stack_a, stack_b);
-	//sort_big_stack(stack_a, stack_b);
-	print_stack(stack_a, stack_b);
+	//print_stack(stack_a, stack_b);
 	//system("leaks push_swap");
 	return(0);
 }

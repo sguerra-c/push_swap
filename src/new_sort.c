@@ -1,43 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   new_sort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sguerra- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/09 15:18:41 by sguerra-          #+#    #+#             */
+/*   Updated: 2021/11/09 18:02:08 by sguerra-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-void	ft_sort_int_tab2(int *tab, int size)
-{
-	int temp;
-	int counter;
-	int i;
-
-	counter = 0;
-	size--;
-	while (counter < size)
-	{
-		i = 0;
-		while (i < size)
-		{
-			if (tab[i] > tab[(i + 1)])
-			{
-				temp = tab[i];
-				tab[i] = tab[(i + 1)];
-				tab[(i + 1)] = temp;
-			}
-			i++;
-		}
-		counter++;
-	}
-}
-
-void move(t_stack *a, t_stack *b, int i)
-{
-    int count = a->size;
-
-    while (count > 0)
-    {
-        if (a->first->num < i)
-            push(b, a);
-        else
-            rotate(a);
-        count--;
-    }
-}
 
 void new_sort(t_stack *a)
 {
@@ -48,6 +21,7 @@ void new_sort(t_stack *a)
 	
 	i = 0;
     b = malloc(5 * sizeof(t_stack));
+	b->size = 0;
 	element = a->first;
 	while (element)
 	{
@@ -55,7 +29,7 @@ void new_sort(t_stack *a)
 		element = element->next;
 		i++;
 	}
-	ft_sort_int_tab2(sort_list, a->size);
+	ft_sort_int_tab(sort_list, a->size);
     if (a->size > 3)
     {
         i = a->size / 2;
@@ -64,5 +38,7 @@ void new_sort(t_stack *a)
     }
     else
         sort_small_stack(a);
-    new_sort_rev(b, a);
+    //new_sort_rev(b, a);
+	print_stack(a, b);
+	free(b);
 }
