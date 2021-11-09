@@ -87,12 +87,14 @@ int	main(int argc, char **argv)
 	stack_a = malloc(5 * sizeof(stack_a));
 	stack_b = malloc(5 * sizeof(stack_b));
 	init_stack(stack_a, 'a');
-	init_stack(stack_b, 'b');
+	//init_stack(stack_b, 'b');
 	copy_args(stack_a, argc, argv);
-	print_stack(stack_a, stack_b);
-	//sort_small_stack(stack_a, stack_b);
-	sort_big_stack(stack_a, stack_b);
 	//print_stack(stack_a, stack_b);
+	new_sort(stack_a);
+	//new_sort_rev(stack_b, stack_a);
+	//sort_small_stack(stack_a, stack_b);
+	//sort_big_stack(stack_a, stack_b);
+	print_stack(stack_a, stack_b);
 	//system("leaks push_swap");
 	return(0);
 }

@@ -43,9 +43,11 @@ void	rotate(t_stack *stack);
 void	rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	rev_rotate(t_stack *stack);
 void	rev_rotate_both(t_stack *stack_a, t_stack *stack_b);
-void	sort_small_stack(t_stack *a, t_stack *b);
+void	sort_small_stack(t_stack *a);
 void	sort_big_stack(t_stack *a, t_stack *b);
 int		*get_chunks(t_stack *stack);
 int		check_sort(t_stack *a);
+void	new_sort(t_stack *a);
+void	new_sort_rev(t_stack *a, t_stack *b);
 
 #endif

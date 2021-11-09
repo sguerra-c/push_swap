@@ -29,7 +29,7 @@ void	rev_rotate(t_stack *stack)
 		last_element->next = first_element;
 		if (stack->name == 'a')
 			write(1, "rra\n", 4);
-		if (stack->name == 'b')
+		else
 			write(1, "rrb\n", 4);
 	}
 }

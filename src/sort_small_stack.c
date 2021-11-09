@@ -15,23 +15,36 @@
 
 void	sort_stack_size_3(t_stack *a)
 {
-	if (a->first->num == a->min && a->last->num != a->max)
+	t_element *element2;
+
+	element2 = a->first->next;
+	if (a->first->num < element2->num && element2->num > a->last->num)
 	{
-		swap(a);
-	 	rotate(a);
+		if (a->first->num > a->last->num)
+			rev_rotate(a);
+		else
+		{
+			swap(a);
+			rotate(a);
+		}
 	}
-	else if (a->first->num == a->max && a->last->num == a->min)
+	else if (a->first->num > element2->num && element2->num > a->last->num)
 	{
 		swap(a);
 		rev_rotate(a);
 	}
-	else if (a->last->num == a->min)
+	else if (a->first->num < element2->num && element2->num > a->last->num)
 		rev_rotate(a);
-	else
-		swap(a);
+	else if (a->first->num > element2->num && element2->num < a->last->num)
+	{
+		if (a->first->num < a->last->num)
+			swap(a);
+		else
+			rotate(a);
+	}
 }
 
-i/*void sort_stack(t_stack *a, t_stack *b)
+/*void sort_stack(t_stack *a, t_stack *b)
 {
 	while (check_sort(a) == 0)
 	{
@@ -39,16 +52,12 @@ i/*void sort_stack(t_stack *a, t_stack *b)
 	}
 }*/
 
-void	sort_small_stack(t_stack *a, t_stack *b)
+void	sort_small_stack(t_stack *a)
 {
-	t_element *element;
-
-	element = a->first;
 	if (a->size == 2 && a->first->num > a->first->next->num)
 		rotate(a);
 	else if (a->size == 3)
 		sort_stack_size_3(a);
 	/*else
 		sort_stack(a, b);*/
-	printf("b == %d\n", b->size);
 }	

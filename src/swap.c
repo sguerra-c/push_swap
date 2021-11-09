@@ -27,6 +27,6 @@ void	swap(t_stack *stack)
 	stack->first = element2;
 	if (stack->name == 'a')
 		write(1, "sa\n", 3);
-	if (stack->name == 'b')
+	else
 		write(1, "sb\n", 3);
 }

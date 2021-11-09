@@ -65,7 +65,7 @@ void	write_push(t_stack *stack_in)
 {
 	if (stack_in->name == 'a')
 		write(1, "pa\n", 3);
-	if (stack_in->name == 'b')
+	else
 		write(1, "pb\n", 3);
 }
 

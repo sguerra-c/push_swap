@@ -29,6 +29,8 @@ SRC =		src/push_swap.c			\
 			src/check_sort.c		\
 			src/sort_big_stack.c	\
 			src/get_chunks.c		\
+			src/new_sort.c			\
+			src/new_sort_rev.c		\
 
 OBJ			= $(SRC:.c=.o)
 

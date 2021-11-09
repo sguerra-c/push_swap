@@ -34,11 +34,6 @@ void	prepare_stack(t_stack *stack, int max)
 
 void	sort_in_a(t_stack *a, t_stack *b, int i, int max)
 {
-	t_element *element;
-	int count;
-
-	element = a->first;
-	count = 0;
 	if (i < 10)
 		prepare_stack(a, a->max);
 	prepare_stack(b, max);
@@ -63,7 +58,7 @@ void	sort_in_b(t_stack *a, t_stack *b)
 			if (b->last->num < b->first->num)
 				break ;
 		}
-		push(b, a);
+	push(b, a);
 }
 
 void	sort_big_stack(t_stack *a, t_stack *b)
