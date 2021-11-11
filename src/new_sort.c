@@ -43,7 +43,7 @@ void new_sort(t_stack *a)
     }
     else
         sort_small_stack(a);
-    new_sort_rev(b);
+    new_sort_rev(b, a);
 	//print_stack(a, b);
-	//free(b);
+	free(b);
 }

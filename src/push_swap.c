@@ -91,10 +91,6 @@ int	main(int argc, char **argv)
 	copy_args(stack_a, argc, argv);
 	//print_stack(stack_a, stack_b);
 	new_sort(stack_a);
-	//new_sort(stack_a);
-	//new_sort(stack_a);
-	//new_sort(stack_a);
-	//new_sort_rev(stack_b, stack_a);
 	//print_stack(stack_a, stack_b);
 	//system("leaks push_swap");
 	return(0);

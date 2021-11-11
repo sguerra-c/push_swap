@@ -28,12 +28,11 @@ SRC =		src/push_swap.c			\
 			src/rev_rotate_both.c	\
 			src/check_sort.c		\
 			src/check_rev_sort.c	\
-			src/sort_big_stack.c	\
-			src/get_chunks.c		\
 			src/new_sort.c			\
 			src/new_sort_rev.c		\
 			src/ft_sort_int_tab.c	\
 			src/move.c				\
+			src/move_to_b_again.c	\
 
 OBJ			= $(SRC:.c=.o)
 

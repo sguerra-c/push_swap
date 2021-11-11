@@ -44,13 +44,12 @@ void	rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	rev_rotate(t_stack *stack);
 void	rev_rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	sort_small_stack(t_stack *a);
-void	sort_big_stack(t_stack *a, t_stack *b);
-int		*get_chunks(t_stack *stack);
 int		check_sort(t_stack *a);
 int		check_rev_sort(t_stack *b);
 void	new_sort(t_stack *a);
-void	new_sort_rev(t_stack *b);
+void	new_sort_rev(t_stack *b, t_stack *a);
 void	ft_sort_int_tab(int *tab, int size);
 void 	move(t_stack *a, t_stack *b, int i, int num_element);
+void	move_to_b_again(t_stack *a2, t_stack *b);
 
 #endif
