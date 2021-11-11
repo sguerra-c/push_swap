@@ -1,46 +1,28 @@
 #include "push_swap.h"
 
-void	prepare_to_push(t_stack *a, t_stack *b)
+void move_rev_to_b(t_stack *a, t_stack *b, int i, int num_element)
 {
-	if (b->first->num > b->first->next->num)
-		swap(b);
-	if (a->size > 2 && a->first->num < a->first->next->num)
-		swap(a);
-}
-
-void	push_to_stack(t_stack *a, t_stack *b)
-{
-	int i;
-
-	i = 0;
-	if (b->first->num < a->first->num)
-		while (b->first->num < a->first->num)
-		{
-			rotate(b);
-			i++;
-		}
-	push(b, a);
-	while(--i >= 0)
-		rev_rotate(b);
-}
-
-void move_rev(t_stack *a, t_stack *b, int i)
-{
-    int count;
 	int rev;
 
-	count = a->size;
 	rev = 0;
-    while (count > 0)
+	/*printf("REV\n");
+	printf("num == %d\n", i);
+	printf("I == %d\n", num_element);*/
+	//print_stack(a, b);
+    while (num_element > 0)
     {
-        if (a->first->num > i)
+        if (a->first->num < i)
+		{
             push(b, a);
+			num_element--;
+			if (b->size > 1 && b->first->num > b->first->next->num)
+				swap(b);
+		}
         else
 		{
             rotate(a);
 			rev++;
 		}
-        count--;
     }
 	while (rev > 0)
 	{
@@ -49,12 +31,12 @@ void move_rev(t_stack *a, t_stack *b, int i)
 	}
 }
 
-void new_sort_rev(t_stack *a, t_stack *b)
+void	move_back_to_b(t_stack *a, t_stack *b)
 {
-	int sort_list[a->size];
-	int i;
 	t_element *element;
-	
+	int i;
+	int sort_list[a->size];
+
 	i = 0;
 	element = a->first;
 	while (element)
@@ -63,15 +45,80 @@ void new_sort_rev(t_stack *a, t_stack *b)
 		element = element->next;
 		i++;
 	}
-	ft_sort_int_tab(sort_list, a->size);
-	if (a->size > 2)
+	ft_sort_int_tab(sort_list, b->size);
+	if(a->size > 2)
+	{
+		i = a->size / 2;
+		if (a->size == 3)
+            i = 1;
+		move_rev_to_b(a, b, sort_list[i], i);
+		new_sort_rev(b);
+	}
+	else
+		sort_small_stack(a);
+}
+
+void move_rev(t_stack *b, t_stack *a, int i, int num_element)
+{
+	int rev;
+
+	rev = 0;
+	/*printf("num == %d\n", i);
+	printf("I == %d\n", num_element);
+	print_stack(a, b);*/
+    while (num_element > 0)
     {
-        i = a->size / 2;
-        move_rev(a, b, sort_list[i]);
-        new_sort_rev(a, b);
-    }
-	while (a->size > 0)
-		push(b, a);
-	if (b->first->num > b->first->next->num)
+		if (b->first->num > i && b->first->num < b->first->next->num)
 			swap(b);
+        if (b->first->num > i)
+		{
+            push(a, b);
+			num_element--;
+		}
+        else
+		{
+            rotate(b);
+			rev++;
+		}
+    }
+	while (rev > 0)
+	{
+		rev_rotate(b);
+		rev--;
+	}
+	//print_stack(a, b);
+	while (check_sort(a) == 0)
+		move_back_to_b(a, b);
+}
+
+void new_sort_rev(t_stack *b)
+{
+	int sort_list[b->size];
+	int i;
+	t_element *element;
+	t_stack *a2;
+	
+	i = 0;
+	element = b->first;
+	a2 = malloc(sizeof(t_stack));
+	a2->name = 'a';
+	while (element)
+	{
+		sort_list[i] = element->num;
+		element = element->next;
+		i++;
+	}
+	ft_sort_int_tab(sort_list, b->size);
+	if(b->size > 2)
+	{
+		i = (b->size / 2);
+		if (b->size == 3)
+			i = 1;
+		move_rev(b, a2, sort_list[i], b->size - i - 1);
+		new_sort_rev(b);
+	}
+	if (b->size == 2 && b->first->num < b->first->next->num)
+		swap(b);
+	push(a2, b);
+	push(a2, b);
 }

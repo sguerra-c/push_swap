@@ -19,10 +19,13 @@ void new_sort(t_stack *a)
 	int i;
 	t_element *element;
 	
-	i = 0;
-    b = malloc(5 * sizeof(t_stack));
+    b = malloc(sizeof(t_stack));
+    b->first = NULL;
+    b->last = NULL;
 	b->size = 0;
+	i = 0;
 	element = a->first;
+    a->name = 'a';
 	while (element)
 	{
 		sort_list[i] = element->num;
@@ -30,15 +33,17 @@ void new_sort(t_stack *a)
 		i++;
 	}
 	ft_sort_int_tab(sort_list, a->size);
-    if (a->size > 3)
+    if (a->size > 3 )
     {
         i = a->size / 2;
-        move(a, b, sort_list[i]);
+        if (a->size == 3)
+            i = 1;
+        move(a, b, sort_list[i], i);
         new_sort(a);
     }
     else
         sort_small_stack(a);
-    //new_sort_rev(b, a);
-	print_stack(a, b);
-	free(b);
+    new_sort_rev(b);
+	//print_stack(a, b);
+	//free(b);
 }

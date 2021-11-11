@@ -72,10 +72,7 @@ void	write_push(t_stack *stack_in)
 void	push(t_stack *stack_in, t_stack *stack_out)
 {
 	if (!stack_out->first)
-	{
-		write(1, "pa\n", 3);
 		return	;
-	}
 	if (!stack_in->first)
 		first_push(stack_in, stack_out);
 	else

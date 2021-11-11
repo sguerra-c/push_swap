@@ -12,17 +12,43 @@
 
 #include "push_swap.h"
 
-void	move(t_stack *a, t_stack *b, int i)
+void	move(t_stack *a, t_stack *b, int i, int num_element)
 {
-	int count;
-
-	count = a->size;
-	while (count > 0)
+	while (b->size < num_element)
 	{
 		if (a->first->num < i)
+		{
 			push(b, a);
+			if (b->size > 1 && b->first->num < b->first->next->num)
+					swap(b);
+		}
+		else
+			break ;
+	}
+	while (b->size < num_element)
+	{
+		if (a->last->num < i)
+		{
+			rev_rotate(a);
+			push(b, a);
+			if (b->size > 2 && b->first->num < b->first->next->num)
+				swap(b);
+		}
+		else
+		break ;
+	}
+	while (b->size < num_element)
+	{
+		if (a->first->num < i)
+		{
+			if(a->first->num > a->first->next->num && a->first->next->num < i)
+				swap(a);
+			else
+			{
+				push(b, a);
+			}
+		}
 		else
 			rotate(a);
-		count--;
 	}
 }

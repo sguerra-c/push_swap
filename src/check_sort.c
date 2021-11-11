@@ -15,18 +15,14 @@
 
 int	check_sort(t_stack *a)
 {
-	int i;
 	t_element *element;
 
-	i = 1;
-	element = a->first;
-	while (i < a->size)
+	element = a->first->next;
+	while (element)
 	{
-		if (element->num < element->next->num)
-			i++;
-		else
+		if (element->prev->num > element->num)
 			return (0);
-		element = element->next;
+	element = element->next;
 	}
 	return (1);
 }
