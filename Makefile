@@ -17,6 +17,7 @@ LIB_DIR =	libft/
 SRC =		src/push_swap.c			\
 			src/insert_first_elem.c	\
 			src/add_end_stack.c		\
+			src/check_value.c		\
 			src/print_stack.c		\
 			src/sort_small_stack.c	\
 			src/swap.c				\

@@ -19,6 +19,7 @@ int	insert_first_elem(t_stack *stack, int number)
 	element = malloc(sizeof(*element));
 	if (!element)
 		return (0);
+	check_value(stack, number);
 	element->num = number;
 	element->next = NULL;
 	element->prev = NULL;

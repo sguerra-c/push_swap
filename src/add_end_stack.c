@@ -20,6 +20,7 @@ int	add_end_stack(t_stack *stack, t_element *last_element, int number)
 	element = malloc(sizeof(*element));
 	if (!element)
 		return (0);
+	check_value(stack, number);
 	element->num = number;
 	element->prev = last_element;
 	element->next = NULL;

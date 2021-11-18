@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libft/libft.h"
+#include <limits.h>
 
 typedef struct	s_element
 {
@@ -34,6 +35,7 @@ typedef struct	s_stack
 
 int	insert_first_elem(t_stack *stack, int number);
 int	add_end_stack(t_stack *stack, t_element *last_element, int number);
+void	check_value(t_stack *stack, long int number);
 void	print_stack(t_stack *stack_a, t_stack *stack_b);
 void	sort_stack(t_stack *stack_a, t_stack *stack_b);
 void	swap(t_stack *stack);

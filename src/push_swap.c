@@ -62,7 +62,7 @@ void	copy_args(t_stack *stack, int argc, char **argv)
 	i = 0;
 	j = 1;
 	while (values[i])
-	{
+	{ 
 		while (values[i][j])
 		{
 			stack->size += add_end_stack(stack, stack->last, ft_atoi(values[i][j]));
